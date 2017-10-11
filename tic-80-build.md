@@ -2,13 +2,13 @@
 
 This is a tutorial to build the open source fantasy console [TIC-80](https://github.com/nesbox/TIC-80)
 
-## What you'll need
+## Tools you'll need
 
-Make sure you have installed:
-- mingw32 (32 bits version is a must)
+You'll have to have these tools installed:
+- MinGW32 (32 bits version is a must)
 - EMScripten Compiler
 
-### Mingw32
+#### Installing Mingw32
 
 Download the installer from its [donwload page](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download).
 Once you have MinGW Installation Manager (search for mingw-get.exe if you don't) running, you'll select
@@ -18,7 +18,7 @@ Once you have MinGW Installation Manager (search for mingw-get.exe if you don't)
 After you finished the setup, open a command prompt and type in `gcc --version` and make sure you have both `gcc` and `mingw32-make` on path.
 If you don't, you add their folder manually now.
 
-### EMScripten Compiler
+#### Installing EMScripten Compiler
 
 Just follow the instructions on [this page](https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html).
 
