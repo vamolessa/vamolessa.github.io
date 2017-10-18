@@ -24,6 +24,7 @@ This is BitCake's set of **free** useful tools and scripts that will let you qui
 We use it in our projects and hope it will be of help for yours! :)
 
 [Bitbucket](https://bitbucket.org/bitcake-studio/bitstrap)
+
 [Asset Store](https://assetstore.unity.com/packages/tools/bitstrap-51416)
 
 ## 8Synth
@@ -43,14 +44,19 @@ Add support for AssetBundles to your Unity game. Build, load, quickly iterate an
 A Git/Hg client based only in keyboard shortcuts.
 
 [Bitbucket](https://bitbucket.org/matheuslessarodrigues/silv)
+
 [NPM](https://www.npmjs.com/package/silv)
 
 # ~Cool Links
 
 ## HTML/JS Canvas
+
 [Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
 
 ## Game Feel
-- [How To make Something Juicy In Pico-8](https://www.youtube.com/watch?v=Kut0dirprmU)
-- [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
-- [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
+
+[How To make Something Juicy In Pico-8](https://www.youtube.com/watch?v=Kut0dirprmU)
+
+[The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
+
+[Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
