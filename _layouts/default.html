@@ -11,31 +11,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
-    <style>
-      #thumbs {   
-        width: 540px;
-        margin-top:90px;
-        margin-left: auto; 
-        margin-right: auto;
-
-         text-align: justify;
-        -ms-text-justify: distribute-all-lines;
-        text-justify: distribute-all-lines;
-      }
-      #thumbs a {
-        vertical-align: top;
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-      }
-      .stretch {
-        width: 100%;
-        display: inline-block;
-        font-size: 0;
-        line-height: 0
-      }
-    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -47,17 +22,14 @@
           <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
         {% endif %}
 
-        <div id="icons">
-          {% if site.github.is_user_page %}
-            <a href="{{ site.github.owner_url }}"><img src="/icons/iconmonstr-github-1.svg" alt="GitHub Profile"/></a>
-          {% endif %}
+        {% if site.github.is_user_page %}
+          <a href="{{ site.github.owner_url }}"><img src="/icons/iconmonstr-github-1.svg" alt="GitHub Profile"/></a>
+        {% endif %}
 
-          <a href="mailto:matheus@bitcakestudio.com"><img src="/icons/iconmonstr-email-10.svg" alt="Email"/></a>
-          <a href="https://twitter.com/matheuslrod"><img src="/icons/iconmonstr-twitter-4.svg" alt="Twitter"/></a>
-          <a href="http://bitcakestudio.com"><img src="/icons/iconmonstr-globe-6.svg" alt="BitCake Studio Site"/></a>
-          <a href="https://soundcloud.com/matheuslessarodrigues"><img src="/icons/iconmonstr-soundcloud-4.svg" alt="SoundCloud"/></a>
-          <span class="stretch"></span>
-        </div>
+        <a href="mailto:matheus@bitcakestudio.com"><img src="/icons/iconmonstr-email-10.svg" alt="Email"/></a>
+        <a href="https://twitter.com/matheuslrod"><img src="/icons/iconmonstr-twitter-4.svg" alt="Twitter"/></a>
+        <a href="http://bitcakestudio.com"><img src="/icons/iconmonstr-globe-6.svg" alt="BitCake Studio Site"/></a>
+        <a href="https://soundcloud.com/matheuslessarodrigues"><img src="/icons/iconmonstr-soundcloud-4.svg" alt="SoundCloud"/></a>
           
         {% if site.show_downloads %}
           <ul>
