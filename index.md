@@ -55,4 +55,4 @@ A Git/Hg client based only in keyboard shortcuts.
 
 ## HTML/JS Canvas
 
-[Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
+- [Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
