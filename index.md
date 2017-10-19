@@ -2,7 +2,7 @@
 title: Matheus
 ---
 
-# Games
+# GAMES
 
 ## Holodrive
 
@@ -16,7 +16,7 @@ A [#LOWREZJAM2017](https://twitter.com/hashtag/lowrezjam2017) game about failing
 
 [Itch](https://foletto.itch.io/failfaster)
 
-# Tools
+# TOOLS
 
 ## BitStrap
 
@@ -47,11 +47,7 @@ A Git/Hg client based only in keyboard shortcuts.
 
 [NPM](https://www.npmjs.com/package/silv)
 
-# ~Cool Links
-
-## HTML/JS Canvas
-
-[Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
+# ~COOL LINKS
 
 ## Game Feel
 
@@ -60,3 +56,7 @@ A Git/Hg client based only in keyboard shortcuts.
 [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
 
 [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
+
+## HTML/JS Canvas
+
+[Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
