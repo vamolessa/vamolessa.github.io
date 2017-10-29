@@ -23,7 +23,7 @@ A [#LOWREZJAM2017](https://twitter.com/hashtag/lowrezjam2017) game about failing
 This is BitCake's set of **free** useful tools and scripts that will let you quickly bootstrap a new Unity 5 project. 
 We use it in our projects and hope it will be of help for yours! :)
 
-[Bitbucket](https://bitbucket.org/bitcake-studio/bitstrap) |
+[GitHub](https://github.com/bitcake/bitstrap) |
 [Asset Store](https://assetstore.unity.com/packages/tools/bitstrap-51416)
 
 ## 8Synth
