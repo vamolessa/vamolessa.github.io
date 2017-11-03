@@ -53,6 +53,11 @@ A Git/Hg client based only in keyboard shortcuts.
 - [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
 - [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
 
+## Game Networking
+
+- [Gaffer on Games](https://gafferongames.com/)
+- [Gabriel Gambetta - Client-Server Game Architecture](http://www.gabrielgambetta.com/client-server-game-architecture.html)
+
 ## HTML/JS Canvas
 
-- [Cheat Sheet](https://matheuslessarodrigues.github.io/LP-Codes/)
+- [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP-Codes/)
