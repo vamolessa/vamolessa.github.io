@@ -58,6 +58,7 @@ A Git/Hg client based only in keyboard shortcuts.
 - [How To make Something Juicy In Pico-8](https://www.youtube.com/watch?v=Kut0dirprmU)
 - [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
 - [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
+- [Secrets of Game Feel and Juice](https://www.youtube.com/watch?v=216_5nu4aVQ)
 
 ### Game Networking
 
