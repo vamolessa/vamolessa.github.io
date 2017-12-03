@@ -38,12 +38,11 @@ Add support for AssetBundles to your Unity game. Build, load, quickly iterate an
 
 [Asset Store](https://assetstore.unity.com/packages/tools/utilities/remotepackagemanager-asset-bundles-18115)
 
-### Silv
+### Verco
 
-A Git/Hg client based only in keyboard shortcuts.
+A git/hg client based only in keyboard shortcuts.
 
-[Bitbucket](https://bitbucket.org/matheuslessarodrigues/silv) |
-[NPM](https://www.npmjs.com/package/silv)
+[GitHub](https://github.com/matheuslessarodrigues/verco)
 
 ## POSTS
 
@@ -67,4 +66,4 @@ A Git/Hg client based only in keyboard shortcuts.
 
 ### HTML/JS Canvas
 
-- [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP-Codes/)
+- [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP/)
