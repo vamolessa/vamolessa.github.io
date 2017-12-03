@@ -18,29 +18,30 @@ A [#LOWREZJAM2017](https://twitter.com/hashtag/lowrezjam2017) game about failing
 
 ## TOOLS
 
-### BitStrap
+### BitStrap `Unity`
 
-This is BitCake's set of **free** useful tools and scripts that will let you quickly bootstrap a new Unity 5 project. 
+This is BitCake's set of **free** useful tools and scripts that will let you quickly bootstrap a new Unity project. 
 We use it in our projects and hope it will be of help for yours! :)
 
 [GitHub](https://github.com/bitcake/bitstrap) |
 [Asset Store](https://assetstore.unity.com/packages/tools/bitstrap-51416)
 
-### 8Synth
+### 8Synth `Unity`
 
 8Synth is a procedural audio synthesizer. It generates unique SFXs for your game with nearly zero build size overhead. It is great for prototyping and retro style games.
 
 [Asset Store](https://assetstore.unity.com/packages/audio/sound-fx/8synth-14445)
 
-### RemotePackageManager
+### RemotePackageManager `Unity`
 
 Add support for AssetBundles to your Unity game. Build, load, quickly iterate and even upload AssetBundles right from Unity Editor.
 
 [Asset Store](https://assetstore.unity.com/packages/tools/utilities/remotepackagemanager-asset-bundles-18115)
 
-### Verco
+### Verco `Rust`
 
 A git/hg client based only in keyboard shortcuts.
+Made with Rust.
 
 [GitHub](https://github.com/matheuslessarodrigues/verco)
 
@@ -50,7 +51,7 @@ A git/hg client based only in keyboard shortcuts.
 
 - [So I rolled my own git client](https://medium.com/@matheuslrod/so-i-rolled-my-own-git-client-c4cbf122e567)
 
-## ~COOL LINKS
+## COOL LINKS~
 
 ### Game Feel
 
