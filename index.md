@@ -57,7 +57,7 @@ Made with Rust.
 
 ### Medium
 
-- [So I rolled my own git client](https://medium.com/@matheuslrod/so-i-rolled-my-own-git-client-c4cbf122e567)
+- [So I rolled my own git client](https://medium.com/@matheuslessa/so-i-rolled-my-own-git-client-c4cbf122e567)
 
 ## COOL LINKS~
 
