@@ -2,6 +2,7 @@
 
 Links sobre programação funcional e data-oriented design (em ordem sugerida):
 
+- [Software hoje em dia](http://tonsky.me/blog/disenchantment/)
 - [Thread sobre programação minimalista](https://twitter.com/garybernhardt/status/1037101314939875328)
 - [One Weird Trick to Write Better Code](http://etodd.io/2015/09/28/one-weird-trick-better-code/)
 - [Semantic Compression](https://caseymuratori.com/blog_0015)
