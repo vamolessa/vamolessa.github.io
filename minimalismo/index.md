@@ -1,5 +1,9 @@
 # Programação Minimalista
 
+Link dos slides sobre programação minimalista (vejam com as notas de apresentação):
+
+- [Slides](https://docs.google.com/presentation/d/e/2PACX-1vS4ImKZRkB19QdsBLCHjM5-zZbCwpzhj4KpAyk3oHBx9pxpM0KMx5HLSZrK-NEUZrg4TyHhq0tZxhrg/pub?start=false&loop=false&delayms=30000)
+
 Links sobre programação funcional e data-oriented design (em ordem sugerida):
 
 - [Software hoje em dia](http://tonsky.me/blog/disenchantment/)
