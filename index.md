@@ -16,6 +16,12 @@ A [#LOWREZJAM2017](https://twitter.com/hashtag/lowrezjam2017) game about failing
 
 [Itch](https://foletto.itch.io/failfaster)
 
+### Rabisco Ninja
+
+Make quick sketches in your browser without worrying about brush or colors.
+
+[Web](https://rabisco-ninja.github.io/)
+
 ## TOOLS
 
 ### BitStrap
