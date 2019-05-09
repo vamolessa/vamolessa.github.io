@@ -65,20 +65,4 @@ Made with Rust.
 
 - [So I rolled my own git client](https://medium.com/@matheuslessa/so-i-rolled-my-own-git-client-c4cbf122e567)
 
-## COOL LINKS~
-
-### Game Feel
-
-- [How To make Something Juicy In Pico-8](https://www.youtube.com/watch?v=Kut0dirprmU)
-- [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
-- [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
-- [Secrets of Game Feel and Juice](https://www.youtube.com/watch?v=216_5nu4aVQ)
-
-### Game Networking
-
-- [Gaffer on Games](https://gafferongames.com/)
-- [Gabriel Gambetta - Client-Server Game Architecture](http://www.gabrielgambetta.com/client-server-game-architecture.html)
-
-### HTML/JS Canvas
-
-- [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP/)
+## [Notes](notes)
