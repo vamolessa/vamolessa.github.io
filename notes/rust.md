@@ -10,7 +10,7 @@ https://github.com/adam-mcdaniel/maroon-lang
 https://blog.fazibear.me/definitive-guide-to-rust-sdl-2-and-emscripten-93d707b22bbb
 https://gregkatz.github.io/2017-05-20-rust-emscripten.html
 
-## CRATES BACANAS
+## Crates Bacanas
 
 https://crates.io/crates/rodio
 https://crates.io/crates/gfx
