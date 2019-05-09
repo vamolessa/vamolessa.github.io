@@ -19,7 +19,20 @@
 - https://www.assetstore.unity3d.com/en/#!/content/10395
 
 ## Shaders Unity
-- https://www.reddit.com/r/Unity3D/comments/afygr0/i_wrote_a_tutorial_for_tooncel_shading_linksource/
+- [Toon Shading Tutorial](https://www.reddit.com/r/Unity3D/comments/afygr0/i_wrote_a_tutorial_for_tooncel_shading_linksource/)
 
 ## Marching Cubes
 - https://github.com/SebLague/Marching-Cubes/tree/master/Assets
+
+## Game Feel
+- [How To make Something Juicy In Pico-8](https://www.youtube.com/watch?v=Kut0dirprmU)
+- [The art of screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U)
+- [Juice it or lose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
+- [Secrets of Game Feel and Juice](https://www.youtube.com/watch?v=216_5nu4aVQ)
+
+## Networking
+- [Gaffer on Games](https://gafferongames.com/)
+- [Gabriel Gambetta - Client-Server Game Architecture](http://www.gabrielgambetta.com/client-server-game-architecture.html)
+
+## HTML/JS
+- [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP/)
