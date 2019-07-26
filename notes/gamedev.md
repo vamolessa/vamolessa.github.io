@@ -36,3 +36,6 @@
 
 ## HTML/JS
 - [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP/)
+
+## Programming
+- [CPU Latency Numbers](https://gist.github.com/jboner/2841832)
