@@ -18,7 +18,7 @@
 - https://www.assetstore.unity3d.com/en/#!/content/48919
 - https://www.assetstore.unity3d.com/en/#!/content/10395
 
-## Shaders Unity
+## Shaders
 - [Toon Shading Tutorial](https://www.reddit.com/r/Unity3D/comments/afygr0/i_wrote_a_tutorial_for_tooncel_shading_linksource/)
 
 ## Marching Cubes
@@ -33,6 +33,9 @@
 ## Networking
 - [Gaffer on Games](https://gafferongames.com/)
 - [Gabriel Gambetta - Client-Server Game Architecture](http://www.gabrielgambetta.com/client-server-game-architecture.html)
+
+## Math Utilities
+- https://github.com/zalo/MathUtilities
 
 ## HTML/JS
 - [Cheat Sheet PT-BR](https://matheuslessarodrigues.github.io/LP/)
