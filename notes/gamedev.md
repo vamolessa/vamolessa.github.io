@@ -13,11 +13,6 @@
 - https://github.com/mxgmn/WaveFunctionCollapse
 - http://www.procjam.com/tutorials/wfc/
 
-## Anti Cheatings
-- http://stackoverflow.com/questions/960499/how-to-prevent-cheating-in-our-multiplayer-games
-- https://www.assetstore.unity3d.com/en/#!/content/48919
-- https://www.assetstore.unity3d.com/en/#!/content/10395
-
 ## Shaders
 - [Toon Shading Tutorial](https://www.reddit.com/r/Unity3D/comments/afygr0/i_wrote_a_tutorial_for_tooncel_shading_linksource/)
 - [Unity Shader Configurations](https://github.com/supyrb/ConfigurableShaders)
