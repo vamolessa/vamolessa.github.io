@@ -21,6 +21,7 @@
 ## Shaders
 - [Toon Shading Tutorial](https://www.reddit.com/r/Unity3D/comments/afygr0/i_wrote_a_tutorial_for_tooncel_shading_linksource/)
 - [Unity Shader Configurations](https://github.com/supyrb/ConfigurableShaders)
+- [Unity URP Migration Notes](https://teofilobd.github.io/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP.html)
 
 ## Marching Cubes
 - https://github.com/SebLague/Marching-Cubes/tree/master/Assets
