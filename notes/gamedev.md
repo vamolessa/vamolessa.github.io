@@ -18,6 +18,9 @@
 - [Unity Shader Configurations](https://github.com/supyrb/ConfigurableShaders)
 - [Unity URP Migration Notes](https://teofilobd.github.io/unity/shaders/urp/graphics/2020/05/18/From-Built-in-to-URP.html)
 
+## Colors
+- [Color Space in Photoshop](https://twitter.com/FreyaHolmer/status/1262739424703475714?s=19)
+
 ## Marching Cubes
 - https://github.com/SebLague/Marching-Cubes/tree/master/Assets
 
