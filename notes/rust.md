@@ -1,8 +1,3 @@
-# Rust
-
-- https://www.reddit.com/r/rust/comments/9vrikb/extensible_open_world_rouge_like_game_written_in/?st=JOBLTV94&sh=fc9cec6b
-- https://blog.mbrt.it/2016-12-01-ripgrep-code-review/
-
 ### Linguagem Funcional dentro de Rust
 - https://github.com/adam-mcdaniel/maroon-lang
 
@@ -16,7 +11,7 @@
 - https://crates.io/crates/gfx
 - https://crates.io/crates/image
 - https://crates.io/crates/vek
-- https://crates.io/crates/directories
+- https://crates.io/crates/directories-next
 - https://crates.io/crates/structopt
 
 ## Rendering
