@@ -17,7 +17,7 @@
 - http://www.waveshaper.org/
 - https://www.organicdrumloops.com/
 
-## Hardware Samples
+## Hardware Samplers
 - http://www.samplerbox.org/makeit
 - https://www.sweetwater.com/store/detail/MPX16--akai-professional-mpx16-sample-recorder-and-player
 - https://produto.mercadolivre.com.br/MLB-1061423358-mpx16-controladora-e-sampler-portatil-com-gravaco-akai-_JM
