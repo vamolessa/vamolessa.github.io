@@ -1,7 +1,6 @@
 # Notes
 
 - [audio](audio.md)
-- [dell-monitor](dell-monitor.md)
 - [drawful2](drawful2.md)
 - [gamedev](gamedev.md)
 - [mixing](mixing.md)
