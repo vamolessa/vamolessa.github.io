@@ -5,14 +5,8 @@
 - https://blog.fazibear.me/definitive-guide-to-rust-sdl-2-and-emscripten-93d707b22bbb
 - https://gregkatz.github.io/2017-05-20-rust-emscripten.html
 
-## Crates Bacanas
-
-- https://crates.io/crates/rodio
-- https://crates.io/crates/gfx
-- https://crates.io/crates/image
-- https://crates.io/crates/vek
-- https://crates.io/crates/directories-next
-- https://crates.io/crates/structopt
+## GBA
+https://rust-tutorials.github.io/learn-gba/
 
 ## Rendering
 https://github.com/gfx-rs/wgpu-rs/blob/master/README.md
@@ -24,14 +18,11 @@ https://github.com/rxi/microui
 ## ECS
 
 ### Nitric "Novo Specs"
-- https://gitlab.com/nitric/nitric
+https://gitlab.com/nitric/nitric
 
 ### Constellation
-- https://github.com/TomGillen/constellation
+https://github.com/TomGillen/constellation
 
 ### Pyro
-- https://maikklein.github.io/pyro-ecs/
-- https://crates.io/crates/pyro
-
-### Specs
-- Dynamic System - https://github.com/slide-rs/shred/blob/master/examples/dyn_sys_data.rs
+https://maikklein.github.io/pyro-ecs/
+https://crates.io/crates/pyro
