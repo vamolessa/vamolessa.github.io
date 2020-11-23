@@ -16,6 +16,7 @@ https://github.com/gfx-rs/naga
 ### IMGUI
 https://github.com/tomaka/immi/
 https://github.com/rxi/microui
+https://github.com/Immediate-Mode-UI/Nuklear
 
 ## Resources
 https://github.com/David-DiGioia/vulkan-diagrams
