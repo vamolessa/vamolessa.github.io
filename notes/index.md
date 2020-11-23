@@ -7,5 +7,5 @@
 - [privacy](privacy.md)
 - [programming](programming.md)
 - [remote-tools](remote-tools.md)
-- [rust](rust.md)
+- [from_scratch](from_scratch.md)
 - [worms-armageddon](worms-armageddon.md)
