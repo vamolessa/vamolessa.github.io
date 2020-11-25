@@ -35,5 +35,6 @@ Melhor que só fazer direto?
 https://crates.io/crates/cgmath
 
 ## Resources
+https://sotrh.github.io/learn-wgpu
 https://github.com/David-DiGioia/vulkan-diagrams
 https://vulkan-tutorial.com/Introduction
