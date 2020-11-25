@@ -4,37 +4,37 @@
 - https://gregkatz.github.io/2017-05-20-rust-emscripten.html
 
 ### GBA
-https://rust-tutorials.github.io/learn-gba/
+- https://rust-tutorials.github.io/learn-gba/
 
 ## Framework
-https://crates.io/crates/sdl2
+- https://crates.io/crates/sdl2
 
 ## Rendering
 
 ### 3D APIs
-https://crates.io/crates/gfx-hal
-https://github.com/gfx-rs/wgpu-rs/
+- https://crates.io/crates/gfx-hal
+- https://github.com/gfx-rs/wgpu-rs/
 
 ### Asset Decoding
-https://crates.io/crates/gltf
-https://crates.io/crates/jpeg-decoder
-https://crates.io/crates/png
+- https://crates.io/crates/gltf
+- https://crates.io/crates/jpeg-decoder
+- https://crates.io/crates/png
 
 ### Shaders
-https://github.com/gfx-rs/naga
-https://crates.io/crates/shaderc
+- https://github.com/gfx-rs/naga
+- https://crates.io/crates/shaderc
 
 ### IMGUI
-https://github.com/tomaka/immi/
-https://github.com/rxi/microui
-https://github.com/Immediate-Mode-UI/Nuklear
+- https://github.com/tomaka/immi/
+- https://github.com/rxi/microui
+- https://github.com/Immediate-Mode-UI/Nuklear
 
 ## Math
 Melhor que só fazer direto?
 
-https://crates.io/crates/cgmath
+- https://crates.io/crates/cgmath
 
 ## Resources
-https://sotrh.github.io/learn-wgpu
-https://github.com/David-DiGioia/vulkan-diagrams
-https://vulkan-tutorial.com/Introduction
+- https://sotrh.github.io/learn-wgpu
+- https://github.com/David-DiGioia/vulkan-diagrams
+- https://vulkan-tutorial.com/Introduction
