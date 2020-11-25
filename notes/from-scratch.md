@@ -1,4 +1,4 @@
-### Platforms
+## Platforms
 #### Emscripten + SDL
 - https://blog.fazibear.me/definitive-guide-to-rust-sdl-2-and-emscripten-93d707b22bbb
 - https://gregkatz.github.io/2017-05-20-rust-emscripten.html
@@ -6,10 +6,10 @@
 #### GBA
 - https://rust-tutorials.github.io/learn-gba/
 
-### Framework
+## Framework
 - https://crates.io/crates/sdl2
 
-### Rendering
+## Rendering
 
 #### 3D APIs
 - https://crates.io/crates/gfx-hal
@@ -29,12 +29,12 @@
 - https://github.com/rxi/microui
 - https://github.com/Immediate-Mode-UI/Nuklear
 
-### Math
+## Math
 Melhor que só fazer direto?
 
 - https://crates.io/crates/cgmath
 
-### Resources
+## Resources
 - https://sotrh.github.io/learn-wgpu
 - https://github.com/David-DiGioia/vulkan-diagrams
 - https://vulkan-tutorial.com/Introduction
