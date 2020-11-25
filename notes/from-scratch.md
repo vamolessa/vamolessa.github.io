@@ -22,6 +22,7 @@ https://crates.io/crates/png
 
 ### Shaders
 https://github.com/gfx-rs/naga
+https://crates.io/crates/shaderc
 
 ### IMGUI
 https://github.com/tomaka/immi/
