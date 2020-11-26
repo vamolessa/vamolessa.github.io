@@ -34,6 +34,9 @@ Melhor que só fazer direto?
 
 - https://crates.io/crates/cgmath
 
+## Profiling
+- https://crates.io/crates/puffin
+
 ## Resources
 - https://sotrh.github.io/learn-wgpu
 - https://github.com/David-DiGioia/vulkan-diagrams
