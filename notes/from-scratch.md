@@ -17,6 +17,7 @@
 
 #### Asset Decoding
 - https://crates.io/crates/gltf
+- https://crates.io/crates/usd
 - https://crates.io/crates/jpeg-decoder
 - https://crates.io/crates/png
 
