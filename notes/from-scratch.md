@@ -42,3 +42,5 @@ Melhor que só fazer direto?
 - https://sotrh.github.io/learn-wgpu
 - https://github.com/David-DiGioia/vulkan-diagrams
 - https://vulkan-tutorial.com/Introduction
+- https://learnopengl.com/
+- https://github.com/SaschaWillems/Vulkan
