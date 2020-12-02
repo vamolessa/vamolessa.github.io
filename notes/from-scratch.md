@@ -24,6 +24,7 @@
 #### Shaders
 - https://github.com/gfx-rs/naga
 - https://crates.io/crates/shaderc
+- https://github.com/EmbarkStudios/rust-gpu
 
 #### IMGUI
 - https://github.com/tomaka/immi/
