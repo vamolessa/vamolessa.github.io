@@ -35,6 +35,7 @@
 Melhor que só fazer direto?
 
 - https://crates.io/crates/cgmath
+- https://github.com/bitshifter/glam-rs
 
 ## Profiling
 - https://crates.io/crates/puffin
