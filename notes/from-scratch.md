@@ -21,6 +21,7 @@
 - https://crates.io/crates/jpeg-decoder
 - https://crates.io/crates/png
 - https://github.com/RazrFalcon/ttf-parser
+- https://github.com/mooman219/fontdue
 
 #### Shaders
 - https://github.com/gfx-rs/naga
