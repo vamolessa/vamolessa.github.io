@@ -20,6 +20,7 @@
 - https://crates.io/crates/usd
 - https://crates.io/crates/jpeg-decoder
 - https://crates.io/crates/png
+- https://github.com/RazrFalcon/ttf-parser
 
 #### Shaders
 - https://github.com/gfx-rs/naga
