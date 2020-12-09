@@ -38,6 +38,7 @@ Melhor que só fazer direto?
 
 - https://crates.io/crates/cgmath
 - https://github.com/bitshifter/glam-rs
+- https://github.com/raygon-renderer/thermite
 
 ## Profiling
 - https://crates.io/crates/puffin
