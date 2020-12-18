@@ -49,3 +49,4 @@ Melhor que só fazer direto?
 - https://vulkan-tutorial.com/Introduction
 - https://learnopengl.com/
 - https://github.com/SaschaWillems/Vulkan
+- https://blog.molecular-matters.com/2014/11/06/stateless-layered-multi-threaded-rendering-part-1/
