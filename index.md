@@ -1,7 +1,3 @@
----
-title: MATHEUS
----
-
 # games
 
 ## demagnete vr ([steam](https://store.steampowered.com/app/995270/DeMagnete_VR/))
