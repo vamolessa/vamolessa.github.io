@@ -25,7 +25,7 @@ Simple git/hg tui client focused on keyboard shortcuts.
 This is BitCake's set of **free** useful tools and scripts that will let you quickly bootstrap a new Unity project. 
 We use it in our projects and hope it will be of help for yours! :)
 
-## Rabisco ([web](https://rabisco.github.io/))
+## rabisco ([web](https://rabisco.github.io/))
 Make quick sketches in your browser without worrying about brush or colors.
 
 ## [wiki](https://github.com/vamolessa/wiki/wiki)
