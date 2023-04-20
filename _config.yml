@@ -5,10 +5,7 @@ description: "Hi! I'm Matheus, I make gaems at BitCake. Code bender. Toolsmith. 
 #for all pages
 permalink: pretty
 
-#for posts
-defaults:
-  - scope:
-    path: ""
-    type: "posts"
-    values:
+collections:
+  posts:
+    output: true
     permalink: /:year/:month/:title
