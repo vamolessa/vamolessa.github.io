@@ -9,5 +9,5 @@
 </ul>
 
 {% for post in site.posts %}
-- [page.date{{ post.title }}]({{ post.url }})
+- [({{ page.date }}) {{ post.title }}]({{ post.url }})
 {% endfor %}
