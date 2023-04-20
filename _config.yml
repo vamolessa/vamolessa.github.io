@@ -1,3 +1,14 @@
 theme: jekyll-theme-minimal
 title: matheus lessa
 description: "Hi! I'm Matheus, I make gaems at BitCake. Code bender. Toolsmith. Audio acolyte. Have u ever went fast"
+
+#for all pages
+permalink: pretty
+
+#for posts
+defaults:
+  - scope:
+    path: ""
+    type: "posts"
+    values:
+    permalink: /:year/:month/:title
