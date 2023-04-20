@@ -1,3 +1,3 @@
-# blog
+# blog posts
 
-- [mem_write](mem_write)
+- [mem_write (apr 2023)](mem_write)
