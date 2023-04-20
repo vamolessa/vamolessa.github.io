@@ -1,10 +1,11 @@
-# a new c memory primitive: mem_write (apr 2023)
+# a new c memory primitive: mem_write
+### apr 2023
 
-it was when i was writing code for hot reloading that i was dealing with path concatenation.
-i didn't get it right the first time. there was lots of calls to `mem_copy`
+It was when I was writing code for hot reloading that I was dealing with path concatenation.
+I didn't get it right the first time. There was lots of calls to `mem_copy`
 (just `memcpy` but in my style of `count` params first) and it was kinda error prone one could say.
 
-there had to be a better way to code it.
+There had to be a better way.
 
 ```c
 static b32
@@ -53,9 +54,9 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 }
 ```
 
-notice the calls to `mem_copy`. they contain lots size and pointer math. easy to make a mistake (i did).
+Notice the calls to `mem_copy`. They contain lots size and pointer math. Easy to make a mistake (I did).
 
-first, it would be better to pass in the dst buffer and its end instead of its size as the end does not move
+First, it would be better to pass in the dst buffer and its end instead of its size as the end does not move
 as we write into it.
 
 ```c
@@ -67,12 +68,12 @@ mem_write(void* restrict dst_start, const void* dst_end, u64 src_size, const voi
 }
 ```
 
-i've come up with the name `mem_write` since it looks like one of those stream write functions but for memory.
+I've come up with the name `mem_write` since it looks like one of those stream write functions but for memory.
 
-at first this does not change much as the only change was to add a parameter (`dst_end`).
-at least we can assert that we have space in dst buffer.
-one further improvement which helps us writing to the correct part of dst buffer, is to keep a separate "cursor"
-which points the next "free" space in dst buffer. like so:
+At first this does not change much as the only change was to add a parameter (`dst_end`).
+At least we can assert that we have space in dst buffer.
+One further improvement which helps us writing to the correct part of dst buffer, is to keep a separate "cursor"
+which points the next "free" space in dst buffer. Like so:
 
 ```c
 static b32
@@ -121,16 +122,16 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 }
 ```
 
-these macros help us getting a pointer to the end of the array:
+These macros help us getting a pointer to the end of the array:
 
 ```c
 #define LEN(array) (sizeof(array) / sizeof((array)[0]))
 #define END(array) ((array) + LEN(array))
 ```
 
-however, still lots of duplicate code and lots of pointer math.
+However, still lots of duplicate code and lots of pointer math.
 
-a small but helpful change would be to return where the "cursor" ends up from `mem_write`:
+A small but helpful change would be to return where the "cursor" ends up from `mem_write`:
 
 ```c
 void*
@@ -141,7 +142,7 @@ mem_write(void* restrict dst_start, const void* dst_end, u64 src_size, const voi
     return result;
 }
 ```
-(this is alreay my final version of this function)
+(This is alreay my final version of this function)
 
 ```c
 static b32
@@ -186,7 +187,7 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 }
 ```
 
-now, to ease passing `src_size` and `src`, we can make these two macros:
+Now, to ease passing `src_size` and `src`, we can make these two macros:
 
 ```
 // takes a length a start ptr and returns a size (in bytes) and same start ptr
@@ -195,7 +196,7 @@ now, to ease passing `src_size` and `src`, we can make these two macros:
 #define RANGE_MEM(start, end) ((u64)((end) - (start)) * sizeof((start)[0])), (start)
 ```
 
-these macros let us compose memories of different shape with our `mem_write` like this:
+These macros let us compose memories of different shape with our `mem_write` like this:
 
 ```c
 static b32
@@ -238,25 +239,25 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 }
 ```
 
-we have two `_MEM` macros because sometimes it's easier to express a memory range as length + ptr,
+We have two `_MEM` macros because sometimes it's easier to express a memory range as length + ptr,
 and sometimes a start + end ptr is easier.
 
-note how now we can use `path_buf_at - 1` inside `RANGE_MEM` to copy the contents of path_buf without the trailing `L'\0'`.
+Note how now we can use `path_buf_at - 1` inside `RANGE_MEM` to copy the contents of path_buf without the trailing `L'\0'`.
 
-now, we could have made the prototype of `mem_write` be 
+Now, we could have made the prototype of `mem_write` be 
 `void* mem_write(void* restrict dst_start, const void* dst_end, const void* restrict src_start, const void* src_end)`
 and we would not need the `RANGE_MEM` macro (and maybe even the `SLICE_MEM`?).
 
-this was my first design of `mem_write` but i've ended up not doing that because i could not figure a way to pass a literal
+This was my first design of `mem_write` but i've ended up not doing that because I could not figure a way to pass a literal
 directly without first creating a local buf (like `loaded_suffix`).
 
 ----
-NOTE: it's not possible to create a macro: `#define LIT_RANGE(lit) (lit), ((lit) + sizeof(lit) / sizeof((lit)[0]))`.
-it would expand `lit` twice which compilers do not guarantee that would point to the same location (string pooling).
+NOTE: It's not possible to create a macro: `#define LIT_RANGE(lit) (lit), ((lit) + sizeof(lit) / sizeof((lit)[0]))`.
+It would expand `lit` twice which compilers do not guarantee that would point to the same location (string pooling).
 and in fact msvc (at least in `/Od` builds) creates multiple `lit` strings in this case.
 ----
 
-with this design we can create one more macro and enjoy maximum compression:
+With this design we can create one more macro and enjoy maximum compression:
 
 ```
 // takes an array and returns its size (in bytes) and a ptr to its start
@@ -282,32 +283,34 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 }
 ```
 
-as a nice bonus from the `MEM` macro, it's also possible to use it with other `mem_` functions.
+As a nice bonus from the `MEM` macro, it's also possible to use it with other `mem_` functions.
 
-like `void* mem_zero(u64 size, void* ptr)` which is equivalent to `memset(ptr, 0, size)`.
-what was previously:
+Like `void* mem_zero(u64 size, void* ptr)` which is equivalent to `memset(ptr, 0, size)`.
+What was previously:
 ```c
     mem_zero(sizeof(platform->renderer_command_buffers), platform->renderer_command_buffers);
 ```
-became:
+Became:
 ```c
     mem_zero(MEM(platform->renderer_command_buffers));
 ```
 
-it works even with variables which are not array:
+It works even with variables which are not array:
 ```c
     // overlapped is a windows OVERLAPPED struct
     mem_zero(MEM(dir_watcher->overlapped));
 ```
-this is why i wrote `MEM` as `#define MEM(array) sizeof(array), &(array)` and not `#define MEM(array) sizeof(array), (array)` :) (there's no `&` in the second version).
+This is why I wrote `MEM` as `#define MEM(array) sizeof(array), &(array)` and not `#define MEM(array) sizeof(array), (array)` :) (there's no `&` in the second version).
 
-a little caveat to keep in mind though, is that the use of `MEM` with string literals is that it always includes the trailing `\0`.
-in this example i did want to copy it into the buffer. but for other cases, i've also defined these macros which exclude the `\0`:
+A little caveat to keep in mind though, is that the use of `MEM` with string literals is that it always includes the trailing `\0`.
+In this example I did want to copy it into the buffer. But for other cases, i've also defined these macros which exclude the `\0`:
 ```c
 #define STR_LEN(str) (LEN(str) - 1)
 #define STR_END(str) ((str) + STR_LEN(str))
 #define STR_MEM(str) (sizeof(str) - sizeof((str)[0])), &(str)
 ```
 
-you may argue that this is a lot of macros for your taste and i would even agree.
-however i'm still experimenting with this way of writing buf filling code and so far it seems promising.
+You may argue that this is a lot of macros for your taste and I would even agree.
+However i'm still experimenting with this way of writing buf filling code and so far it seems promising.
+
+This post was inspired by [Semantic Compression](https://caseymuratori.com/blog_0015) blog post.
