@@ -14,6 +14,7 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
 
     WCHAR path_buf[MAX_PATH] = {0};
     ASSERT(current_dir_path_len + STR_LEN(app_lib_path) + STR_LEN(loaded_suffix) < LEN(path_buf));
+
     u32 current_dir_path_size = current_dir_path_len * sizeof(current_dir_path[0]);
 
     // we first copy current_dir_path into path_buf
@@ -34,14 +35,14 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
     // then copy it all to loaded_path_buf
     WCHAR loaded_path_buf[LEN(path_buf)] = {0};
     mem_copy(
-        current_dir_path_size + sizeof(app_lib_path) - 1,
+        current_dir_path_size + sizeof(app_lib_path) - sizeof(L'\0'),
         loaded_path_buf,
         path_buf
     );
     // then concat loaded_suffix to it
     mem_copy(
         sizeof(loaded_suffix),
-        (char*)loaded_path_buf + current_dir_path_size + sizeof(app_lib_path) - 1,
+        (char*)loaded_path_buf + current_dir_path_size + sizeof(app_lib_path) - sizeof(L'\0'),
         loaded_suffix
     );
     // loaded_path_buf should contain "my_project_path/build/gamelib.dll.loaded"
@@ -51,3 +52,262 @@ try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* 
     // done this way so we're free to overwrite the dll at path_buf with a new version for hot reloading
 }
 ```
+
+notice the calls to `mem_copy`. they contain lots size and pointer math. easy to make a mistake (i did).
+
+first, it would be better to pass in the dst buffer and its end instead of its size as the end does not move
+as we write into it.
+
+```c
+void
+mem_write(void* restrict dst_start, const void* dst_end, u64 src_size, const void* restrict src) {
+    void* result = (char*)dst_start + src_size;
+    ASSERT(result <= dst_end);
+    mem_copy(src_size, dst_start, src);
+}
+```
+
+i've come up with the name `mem_write` since it looks like one of those stream write functions but for memory.
+
+at first this does not change much as the only change was to add a parameter (`dst_end`).
+at least we can assert that we have space in dst buffer.
+one further improvement which helps us writing to the correct part of dst buffer, is to keep a separate "cursor"
+which points the next "free" space in dst buffer. like so:
+
+```c
+static b32
+try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* current_dir_path) {
+    const WCHAR app_lib_path[] = L"build/gamelib.dll";
+    const WCHAR loaded_suffix[] = L".loaded";
+
+    WCHAR path_buf[MAX_PATH] = {0};
+    char* path_buf_at = (char*)path_buf;
+
+    u32 current_dir_path_size = current_dir_path_len * sizeof(current_dir_path[0]);
+
+    mem_write(
+        path_buf_at,
+        END(path_buf),
+        current_dir_path_size,
+        current_dir_path
+    );
+    path_buf_at += current_dir_path_size;
+    mem_write(
+        path_buf_at,
+        END(path_buf),
+        sizeof(app_lib_path),
+        app_lib_path
+    );
+    path_buf_at += sizeof(app_lib_path);
+
+    WCHAR loaded_path_buf[LEN(path_buf)] = {0};
+    char* loaded_path_buf_at = (char*)loaded_path_buf;
+    mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        current_dir_path_size + sizeof(app_lib_path) - sizeof(L'\0'),
+        path_buf
+    );
+    loaded_path_buf_at += current_dir_path_size + sizeof(app_lib_path) - sizeof(L'\0');
+    mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        sizeof(loaded_suffix),
+        loaded_suffix
+    );
+    loaded_path_buf_at += loaded_path_buf_at;
+
+    // rest of code here...
+}
+```
+
+these macros help us getting a pointer to the end of the array:
+
+```c
+#define LEN(array) (sizeof(array) / sizeof((array)[0]))
+#define END(array) ((array) + LEN(array))
+```
+
+however, still lots of duplicate code and lots of pointer math.
+
+a small but helpful change would be to return where the "cursor" ends up from `mem_write`:
+
+```c
+void*
+mem_write(void* restrict dst_start, const void* dst_end, u64 src_size, const void* restrict src) {
+    void* result = (char*)dst_start + src_size;
+    ASSERT(result <= dst_end);
+    mem_copy(src_size, dst_start, src);
+    return result;
+}
+```
+(this is alreay my final version of this function)
+
+```c
+static b32
+try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* current_dir_path) {
+    const WCHAR app_lib_path[] = L"build/gamelib.dll";
+    const WCHAR loaded_suffix[] = L".loaded";
+
+    WCHAR path_buf[MAX_PATH] = {0};
+    WCHAR* path_buf_at = path_buf; // cursor does not need to be of type char* anymore
+
+    u32 current_dir_path_size = current_dir_path_len * sizeof(current_dir_path[0]);
+
+    path_buf_at = mem_write(
+        path_buf_at,
+        END(path_buf),
+        current_dir_path_size,
+        current_dir_path
+    );
+    path_buf_at = mem_write(
+        path_buf_at,
+        END(path_buf),
+        sizeof(app_lib_path),
+        app_lib_path
+    );
+
+    WCHAR loaded_path_buf[LEN(path_buf)] = {0};
+    WCHAR* loaded_path_buf_at = loaded_path_buf; // cursor does not need to be of type char* anymore
+    loaded_path_buf_at = mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        current_dir_path_size + sizeof(app_lib_path) - sizeof(L'\0'),
+        path_buf
+    );
+    loaded_path_buf_at = mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        sizeof(loaded_suffix),
+        loaded_suffix
+    );
+
+    // rest of code here...
+}
+```
+
+now, to ease passing `src_size` and `src`, we can make these two macros:
+
+```
+// takes a length a start ptr and returns a size (in bytes) and same start ptr
+#define SLICE_MEM(len, ptr) ((len) * sizeof((ptr)[0])), (ptr)
+// takes a start and end ptr and returns a size (in bytes) and start ptr
+#define RANGE_MEM(start, end) ((u64)((end) - (start)) * sizeof((start)[0])), (start)
+```
+
+these macros let us compose memories of different shape with our `mem_write` like this:
+
+```c
+static b32
+try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* current_dir_path) {
+    const WCHAR app_lib_path[] = L"build/gamelib.dll";
+    const WCHAR loaded_suffix[] = L".loaded";
+
+    WCHAR path_buf[MAX_PATH] = {0};
+    WCHAR* path_buf_at = path_buf;
+
+    // NOTE: no more `current_dir_path_size`
+
+    path_buf_at = mem_write(
+        path_buf_at,
+        END(path_buf),
+        SLICE_MEM(current_dir_path_len, current_dir_path)
+    );
+    path_buf_at = mem_write(
+        path_buf_at,
+        END(path_buf),
+        sizeof(app_lib_path),
+        app_lib_path
+    );
+
+    WCHAR loaded_path_buf[LEN(path_buf)] = {0};
+    WCHAR* loaded_path_buf_at = loaded_path_buf;
+    loaded_path_buf_at = mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        RANGE_MEM(path_buf, path_buf_at - 1) // `-1` easier than `- sizeof(L'\0')` to express no trailing L'\0'
+    );
+    loaded_path_buf_at = mem_write(
+        loaded_path_buf_at,
+        END(loaded_path_buf),
+        sizeof(loaded_suffix),
+        loaded_suffix
+    );
+
+    // rest of code here...
+}
+```
+
+we have two `_MEM` macros because sometimes it's easier to express a memory range as length + ptr,
+and sometimes a start + end ptr is easier.
+
+note how now we can use `path_buf_at - 1` inside `RANGE_MEM` to copy the contents of path_buf without the trailing `L'\0'`.
+
+now, we could have made the prototype of `mem_write` be 
+`void* mem_write(void* restrict dst_start, const void* dst_end, const void* restrict src_start, const void* src_end)`
+and we would not need the `RANGE_MEM` macro (and maybe even the `SLICE_MEM`?).
+
+this was my first design of `mem_write` but i've ended up not doing that because i could not figure a way to pass a literal
+directly without first creating a local buf (like `loaded_suffix`).
+
+----
+NOTE: it's not possible to create a macro: `#define LIT_RANGE(lit) (lit), ((lit) + sizeof(lit) / sizeof((lit)[0]))`.
+it would expand `lit` twice which compilers do not guarantee that would point to the same location (string pooling).
+and in fact msvc (at least in `/Od` builds) creates multiple `lit` strings in this case.
+----
+
+with this design we can create one more macro and enjoy maximum compression:
+
+```
+// takes an array and returns its size (in bytes) and a ptr to its start
+#define MEM(array) sizeof(array), &(array)
+```
+
+```c
+static b32
+try_reload_app_data(struct AppData* app, u32 current_dir_path_len, const WCHAR* current_dir_path) {
+    const WCHAR app_lib_path[] = L"build/gamelib.dll";
+
+    WCHAR path_buf[MAX_PATH] = {0};
+    WCHAR* path_buf_at = path_buf;
+    path_buf_at = mem_write(path_buf_at, END(path_buf), SLICE_MEM(current_dir_path_len, current_dir_path));
+    path_buf_at = mem_write(path_buf_at, END(path_buf), MEM(app_lib_path)); // it works on local bufs
+
+    WCHAR loaded_path_buf[LEN(path_buf)] = {0};
+    WCHAR* loaded_path_buf_at = loaded_path_buf;
+    loaded_path_buf_at = mem_write(loaded_path_buf_at, END(loaded_path_buf), RANGE_MEM(path_buf, path_buf_at - 1));
+    loaded_path_buf_at = mem_write(loaded_path_buf_at, END(loaded_path_buf), MEM(L".loaded")); // it works on literals too!
+
+    // rest of code...
+}
+```
+
+as a nice bonus from the `MEM` macro, it's also possible to use it with other `mem_` functions.
+
+like `void* mem_zero(u64 size, void* ptr)` which is equivalent to `memset(ptr, 0, size)`.
+what was previously:
+```c
+    mem_zero(sizeof(platform->renderer_command_buffers), platform->renderer_command_buffers);
+```
+became:
+```c
+    mem_zero(MEM(platform->renderer_command_buffers));
+```
+
+it works even with variables which are not array:
+```c
+    // overlapped is a windows OVERLAPPED struct
+    mem_zero(MEM(dir_watcher->overlapped));
+```
+this is why i wrote `MEM` as `#define MEM(array) sizeof(array), &(array)` and not `#define MEM(array) sizeof(array), (array)` :) (there's no `&` in the second version).
+
+a little caveat to keep in mind though, is that the use of `MEM` with string literals is that it always includes the trailing `\0`.
+in this example i did want to copy it into the buffer. but for other cases, i've also defined these macros which exclude the `\0`:
+```c
+#define STR_LEN(str) (LEN(str) - 1)
+#define STR_END(str) ((str) + STR_LEN(str))
+#define STR_MEM(str) (sizeof(str) - sizeof((str)[0])), &(str)
+```
+
+you may argue that this is a lot of macros for your taste and i would even agree.
+however i'm still experimenting with this way of writing buf filling code and so far it seems promising.
