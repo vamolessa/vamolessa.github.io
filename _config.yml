@@ -8,4 +8,4 @@ permalink: pretty
 collections:
   posts:
     output: true
-    permalink: /:year/:title
+    permalink: /blog/:title
