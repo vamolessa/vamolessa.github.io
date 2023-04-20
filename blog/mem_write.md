@@ -300,7 +300,11 @@ It works even with variables which are not array:
     // overlapped is a windows OVERLAPPED struct
     mem_zero(MEM(dir_watcher->overlapped));
 ```
-This is why I wrote `MEM` as `#define MEM(array) sizeof(array), &(array)` and not `#define MEM(array) sizeof(array), (array)` :) (there's no `&` in the second version).
+This is why I wrote `MEM` as `#define MEM(array) sizeof(array), &(array)` and not `#define MEM(array) sizeof(array), (array)` :)
+(there's no `&` in the second version).
+
+As you can see, even with C's limitations, it's possible to achieve nice expressiveness
+when we have the right (composable) primitives.
 
 A little caveat to keep in mind though, is that the use of `MEM` with string literals is that it always includes the trailing `\0`.
 In this example I did want to copy it into the buffer. But for other cases, i've also defined these macros which exclude the `\0`:
