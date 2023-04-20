@@ -4,6 +4,12 @@ title: hello
 
 # games
 
+## [atomic picnic](https://store.steampowered.com/app/1903560/Atomic_Picnic/)
+ATOMIC PICNIC is a 4-Player co-op shooter roguelite!
+
+## [nekoneko rampage](https://store.steampowered.com/app/1030000/Neko_Neko_Rampage/)
+Roll fast and make a mess! Welcome to a colorful world of cats and chaos.
+
 ## [demagnete vr](https://store.steampowered.com/app/995270/DeMagnete_VR/)
 DeMagnete VR is a Puzzle Adventure game about magnetism, in virtual reality.
 
@@ -22,7 +28,7 @@ A simple and opinionated modal code editor for your terminal
 A simple Git/Mercurial/PlasticSCM tui client based on keyboard shortcuts
 
 ## [copycat](https://github.com/vamolessa/copycat)
-A simple clipboard cli interface for windows
+A clipboard cli interface for windows with support for images
 
 ## [unreal-helper](https://github.com/vamolessa/unreal-helper)
 Interact with the Unreal Engine from the cli (compile, package, run, open the editor, etc)
@@ -35,6 +41,9 @@ We use it in our projects and hope it will be of help for yours! :)
 Make quick sketches in your browser without worrying about brush or colors.
 
 # writings
+
+## [blog](/blog)
+My personal blog. There you'll find stuff that I wrote.
 
 ## [wiki](https://github.com/vamolessa/wiki/wiki)
 My personal wiki. There you'll find stuff about programming, gamedev and some more.
