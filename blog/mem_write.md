@@ -1,4 +1,4 @@
-# a new c memory primitive: mem_write
+# a new c memory primitive: `mem_write`
 ### apr 2023
 
 It was when I was writing code for hot reloading that I was dealing with path concatenation.
