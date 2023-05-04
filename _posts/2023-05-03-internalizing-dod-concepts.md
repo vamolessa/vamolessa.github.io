@@ -248,4 +248,4 @@ several hundreds of cursors (it was some log massaging I had to do which exposed
 Writing apis that work in batches makes it much easier to spot workloads that only need to be processed once;
 which would otherwise be called inside a loop hidden behind several function calls.
 
-I feel like I've internalized data-oriented concepts ("where there's one, there's many") a little bit more.
+I feel like I've internalized data-oriented concepts (["where there's one, there's many"](https://youtu.be/rX0ItVEVjHc?t=2252)) a little bit more (even though the common scenario is a single edit at a time, it really is a degenerate case of multiple edits at once!).
