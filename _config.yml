@@ -7,5 +7,5 @@ permalink: pretty
 
 collections:
   posts:
-    output: true
-    permalink: /blog/:title
+	output: true
+	permalink: /blog/:title
