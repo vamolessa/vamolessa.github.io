@@ -12,8 +12,13 @@ which usually take two void pointers and a size as parameters.
 When dealing with dynamic slices (ptr + len) I've had a few times the arguments passed wrong
 because i was not taking into account the sizeof the element!
 
-Like this (which is wrong): `mem_copy(dst_array, src_array, src_array_len)` instead of
-`mem_copy(dst_array, src_array, src_array_len * sizeof(src_array[0]))`.
+```c
+// like this (which is wrong):
+mem_copy(dst_array, src_array, src_array_len);
+
+// instead of this (which correctly copies all of the array memory):
+mem_copy(dst_array, src_array, src_array_len * sizeof(src_array[0]));
+```
 
 To have it be a little more typesafe, i've changed all `src` params to memory functions to take `char*` instead of `void*`
 and made these macros that enhance them:
@@ -77,10 +82,14 @@ and we do the `+ 1` before passing it to `fmt` to make it point to the first rea
 Then we also have to compensate for it in the fmt `args_len` param by doing `- 1`
 since it would be counting the empty arg otherwise.
 
-I also use this trick to make a better api for
-`struct Arena* get_scratch_arena(const struct Arena* conflict_arenas[], u32 conflict_arenas_len)`:
+I also use this trick to make a better api for:
+```c
+struct Arena* get_scratch_arena(const struct Arena* conflict_arenas[], u32 conflict_arenas_len);
+```
 
 ```c
+// the actual function is now `get_scratch_arena_raw`
+// we can reuse the same `VARIADIC` macro here
 #define get_scratch_arena(...) get_scratch_arena_raw(VARIADIC(const struct Arena*, __VA_ARGS__))
 ```
 
@@ -97,7 +106,7 @@ As far as I know, though, it will not work in C++ as it does not support rvalue 
 
 ## BONUS: how I do generics in C
 
-This is not that much a macro trick but more of one way to do generics/templates within C's limitations.
+This is not that much of a macro trick but more of one way to do generics/templates within C's limitations.
 By taking advantage of the fact that C compilers always try to inline functions, we can implement them in a
 "type erased" form and then reassemble the type information at call sites.
 
@@ -129,8 +138,8 @@ tree_pre_next_raw(struct TreeLayout layout, const void* ptr) {
 #define tree_pre_next(TYPE, PTR) ((const TYPE*)tree_pre_next_raw(TREE_LAYOUT(TYPE), (const TYPE*)(PTR)))
 ```
 
-For it to work and we actually use it, we define `struct TreeLayout` which serves as a way
-to encode in data the layout of the concrete tree node struct we're iterating.
+For it to actually work, we define `struct TreeLayout`.
+It serves as a way to encode as data the layout of the concrete tree node struct we're iterating.
 
 ```c
 struct TreeLayout {
@@ -154,7 +163,7 @@ just to be sure the usage code is passing a pointer of the expected type.
 Then we can finally use it like so:
 
 ```c
-// the tree we're iterating
+// the concrecte tree node type we will iterate
 struct MyTestTreeNode {
 	char some_data;
 	char pad0[7];
@@ -193,4 +202,4 @@ Like, we don't try to hide the wrapped function, we never do control flow inside
 to keep the macro bodies to one liners.
 
 You can find all of these examples in their "real" form in my C foundation lib:
-https://github.com/vamolessa/foundation/
+https://github.com/vamolessa/foundation/.
